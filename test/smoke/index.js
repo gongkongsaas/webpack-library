@@ -20,9 +20,13 @@ rimraf('./dist', () => {
       colors: true,
       modules: false,
       children: false
-    }))
-  });
+    }));
 
-  mocha.addFile(join(__dirname, 'html-test.js'));
-  mocha.run();
+    mocha.addFile(join(__dirname, 'html-test.js'));
+    mocha.addFile(join(__dirname, 'css-test.js'));
+    mocha.addFile(join(__dirname, 'js-test.js'));
+    mocha.run();
+  });
 });
+
+

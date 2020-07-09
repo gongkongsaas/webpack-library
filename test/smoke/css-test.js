@@ -1,16 +1,15 @@
 const { sync } = require('glob-all');
 
-describe('Checking generated html files.', () => {
-  it('should generated html files', (done) => {
+describe('Checking generated css files.', () => {
+  it('should generated css files', (done) => {
     const files = sync([
-      './dist/index.html',
-      './dist/search.html'
+      '**/dist/search_*.css',
     ]);
 
     if (files.length > 0) {
       done();
     } else {
-      throw new Error('no html files generated')    
+      throw new Error('no css files generated')    
     }
   })
 })
