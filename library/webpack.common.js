@@ -29,7 +29,7 @@ const setMultiPageApplication = () => {
 
     return htmlWebpackPlugins.push(
       new HtmlWebpackPlugin({
-        template: resolve(projectRoot, `src/${pathName}/index.html`),
+        template: resolve(projectRoot, `src/document.ejs`),
         filename: `${pathName}.html`,
         chunks: [pathName],
         inject: true,
