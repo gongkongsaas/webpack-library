@@ -19,9 +19,7 @@ const setMultiPageApplication = () => {
   const htmlWebpackPlugins = [];
 
   const entryFiles = sync(resolve(projectRoot, './src/*/index.js'));
-  console.log('projectRoot', projectRoot);
-  console.log('projectRootsssssss', resolve(projectRoot, './src/*/index.js'));
-  console.log('entryFiles', entryFiles);
+
   Object.keys(entryFiles).map((index) => {
     const entryFile = entryFiles[index];
     const match = entryFile.match(/src\/(.*)\/index\.js/);
@@ -54,7 +52,7 @@ const setMultiPageApplication = () => {
 };
 
 const { entry, htmlWebpackPlugins } = setMultiPageApplication();
-console.log('111111111111111111', entry);
+
 module.exports = {
   entry,
   module: {
@@ -66,15 +64,15 @@ module.exports = {
             loader: MiniCssExtractPlugin.loader,
           },
           'css-loader',
-          'less-loader',
           {
             loader: 'postcss-loader',
             options: {
               plugins: () => [autoprefixer],
             },
           },
+          'less-loader',
         ],
-        include: resolve(__dirname, 'src'),
+        include: resolve(projectRoot, 'src'),
       },
       {
         test: /\.js$/,

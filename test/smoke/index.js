@@ -23,6 +23,6 @@ rimraf('./dist', () => {
     }))
   });
 
-  // mocha.addFile(join(__dirname, 'html-test.js'));
-  // mocha.run();
+  mocha.addFile(join(__dirname, 'html-test.js'));
+  mocha.run();
 });
