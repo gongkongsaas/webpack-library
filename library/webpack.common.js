@@ -104,4 +104,8 @@ module.exports = {
       filename: '[name]_[contenthash:8].css',
     }),
   ].concat(htmlWebpackPlugins),
+  externals: {
+    'react': 'React',
+    'react-dom': 'ReactDOM',
+  },
 };
