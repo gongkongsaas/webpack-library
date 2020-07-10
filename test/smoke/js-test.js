@@ -8,7 +8,7 @@ describe('Checking generated javascript files.', () => {
       '**/dist/commons_*.bundle.js',
     ]);
 
-    if (files.length > 0) {
+    if (files.length > 1) {
       done();
     } else {
       throw new Error('no javascript files generated')    
