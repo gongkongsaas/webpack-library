@@ -105,7 +105,7 @@ module.exports = {
     }),
   ].concat(htmlWebpackPlugins),
   externals: {
-    'react': 'React',
+    react: 'React',
     'react-dom': 'ReactDOM',
   },
 };
