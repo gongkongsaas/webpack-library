@@ -1,6 +1,6 @@
 {
   "name": "webpack-library-saas",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
@@ -46,7 +46,7 @@
     "webpackbar": "^4.0.0"
   },
   "browsersList": {
-    "production":[
+    "production": [
       ">0.2%",
       "not dead",
       "not op_mini all"
