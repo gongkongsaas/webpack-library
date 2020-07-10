@@ -1,4 +1,5 @@
 # webpack-test
+[![Build Status](https://travis-ci.com/gongkongsaas/webpack-library.svg?branch=1.0.0)](https://travis-ci.com/gongkongsaas/webpack-library)
 
 # 构建包结构
 
