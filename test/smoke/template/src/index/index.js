@@ -21,4 +21,4 @@ ReactDOM.render(
 
 add();
 del();
-console.log(22222222222);
+document.write('The index js.');
