@@ -7,10 +7,12 @@ process.on('unhandledRejection', err => {
 });
 
 const webpack = require('webpack');
+const open = require('open');
+
 const args = process.argv.slice(2);
 
 if (args[0] === 'build') {
-  const prodConfig = require('../../../node_modules/webpack-library-saas/library/webpack.prod');
+  const prodConfig = require('../library/webpack.prod');
 
   webpack(prodConfig, (err, stats) => {
     if (err) {
@@ -25,5 +27,13 @@ if (args[0] === 'build') {
     }));
   });
 } else if (args[0] === 'start') {
-  
+  const devConfig = require('../library/webpack.dev');
+  const compiler = webpack(devConfig);
+  const server = new WebpackDevServer(compiler);
+
+  server.listen('8000', 'localhost', err => {
+    if (!err) {
+      open(`http://localhost:8000`);
+    }
+  });
 }
