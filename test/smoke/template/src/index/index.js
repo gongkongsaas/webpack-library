@@ -14,7 +14,7 @@ class IndexBox extends React.Component {
         <p>eslint test</p>
         <p>eslint test</p>
         <p>eslint test</p>
-         </div>
+      </div>
     )
   }
 }

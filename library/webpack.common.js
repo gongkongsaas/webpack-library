@@ -70,7 +70,7 @@ module.exports = {
               plugins: () => [autoprefixer],
             },
           },
-          'less-loader',
+           'less-loader',
         ],
         include: resolve(projectRoot, 'src'),
       },
