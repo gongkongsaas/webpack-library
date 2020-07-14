@@ -23,6 +23,7 @@
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.0",
     "glob-all": "^3.2.1",
+    "husky": "^4.2.5",
     "istanbul": "^0.4.5",
     "less": "^3.11.3",
     "less-loader": "^6.2.0",
@@ -62,5 +63,10 @@
   },
   "bin": {
     "webpack-library-saas": "./bin/webpack-library-saas.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "eslint"
+    }
   }
 }
