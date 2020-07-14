@@ -8,6 +8,7 @@ process.on('unhandledRejection', err => {
 
 const webpack = require('webpack');
 const open = require('open');
+const WebpackDevServer = require('webpack-dev-server');
 
 const args = process.argv.slice(2);
 
