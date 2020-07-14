@@ -52,7 +52,7 @@ const setMultiPageApplication = () => {
 };
 
 const { entry, htmlWebpackPlugins } = setMultiPageApplication();
-
+Assdfsdfds;
 module.exports = {
   entry,
   module: {
@@ -70,7 +70,7 @@ module.exports = {
               plugins: () => [autoprefixer],
             },
           },
-           'less-loader',
+          'less-loader',
         ],
         include: resolve(projectRoot, 'src'),
       },
