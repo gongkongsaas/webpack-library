@@ -1,6 +1,7 @@
 import add from '../common/add';
 import del from '../common/delete';
 import './search.less';
+import './search.css';
 
 add();
 del();

@@ -52,13 +52,13 @@ const setMultiPageApplication = () => {
 };
 
 const { entry, htmlWebpackPlugins } = setMultiPageApplication();
-Assdfsdfds;
+
 module.exports = {
   entry,
   module: {
     rules: [
       {
-        test: /\.less$/,
+        test: /\.(less|css)$/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
