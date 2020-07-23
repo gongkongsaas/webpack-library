@@ -30,7 +30,7 @@ const setMultiPageApplication = () => {
     return htmlWebpackPlugins.push(
       new HtmlWebpackPlugin({
         template: resolve(projectRoot, 'src/document.ejs'),
-        filename: `${pathName}.html`,
+        filename: `${pathName}/index.html`,
         chunks: [pathName],
         inject: true,
         minify: {
@@ -95,7 +95,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: '[name]_[hash:8].[ext]',
+              name: 'assets/[name]_[hash:8].[ext]',
             },
           },
         ],
@@ -104,13 +104,13 @@ module.exports = {
   },
   output: {
     path: resolve(projectRoot, 'dist'),
-    filename: '[name]_[chunkhash:8].bundle.js',
+    filename: '[name]/index_[chunkhash:8].bundle.js',
   },
   plugins: [
     new CleanWebpackPlugin(),
     new WebpackBar(),
     new MiniCssExtractPlugin({
-      filename: '[name]_[contenthash:8].css',
+      filename: '[name]/index_[contenthash:8].css',
     }),
   ].concat(htmlWebpackPlugins),
   externals: {
