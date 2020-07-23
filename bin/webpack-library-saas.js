@@ -14,7 +14,9 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const devConfig = require('../library/webpack.dev');
 const prodConfig = require('../library/webpack.prod');
-const { appName, port } = require(path.resolve(devConfig.output.path, '../config/config'));
+
+const configPath = path.resolve(devConfig.output.path, '../config/config');
+const { appName, port } = require(configPath);
 
 const args = process.argv.slice(2);
 
