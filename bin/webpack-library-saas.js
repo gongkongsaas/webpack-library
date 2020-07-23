@@ -14,6 +14,7 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const devConfig = require('../library/webpack.dev');
 const prodConfig = require('../library/webpack.prod');
+const { appName, port } = require(path.resolve(devConfig.output.path, '../config/config'));
 
 const args = process.argv.slice(2);
 
@@ -40,7 +41,7 @@ if (args[0] === 'build') {
   app.use(middleware);
   app.use(webpackHotMiddleware(compiler));
 
-  app.get('/:appName/:pageName', (req, res) => {
+  app.get(`/${appName}/:pageName`, (req, res) => {
     let result = '';
     const htmlPath = path.join(`${devConfig.output.path}/${req.params.pageName}/index.html`);
 
@@ -54,9 +55,9 @@ if (args[0] === 'build') {
     res.end();
   });
 
-  app.listen('8000', (err) => {
+  app.listen(port, (err) => {
     if (!err) {
-      open('http://localhost:8000');
+      open(`http://localhost:${port}/${appName}/index`);
     }
   });
 }
