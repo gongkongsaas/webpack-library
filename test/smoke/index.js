@@ -25,8 +25,6 @@ rimraf('./dist', () => {
     mocha.addFile(join(__dirname, 'html-test.js'));
     mocha.addFile(join(__dirname, 'css-test.js'));
     mocha.addFile(join(__dirname, 'js-test.js'));
-    mocha.addFile(join(__dirname, 'image-test.js'));
-
     mocha.run();
   });
 });

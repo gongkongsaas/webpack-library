@@ -1,20 +1,23 @@
 #!/usr/bin/env node
 
-'use strict';
+/* eslint no-console: "off" */
 
-process.on('unhandledRejection', err => {
+process.on('unhandledRejection', (err) => {
   throw err;
 });
 
 const webpack = require('webpack');
 const open = require('open');
-const WebpackDevServer = require('webpack-dev-server');
+const express = require('express');
+const path = require('path');
+const webpackDevMiddleware = require('webpack-dev-middleware');
+const webpackHotMiddleware = require('webpack-hot-middleware');
+const devConfig = require('../library/webpack.dev');
+const prodConfig = require('../library/webpack.prod');
 
 const args = process.argv.slice(2);
 
 if (args[0] === 'build') {
-  const prodConfig = require('../library/webpack.prod');
-
   webpack(prodConfig, (err, stats) => {
     if (err) {
       console.error(err);
@@ -24,17 +27,36 @@ if (args[0] === 'build') {
     console.log(stats.toString({
       colors: true,
       modules: false,
-      children: false
+      children: false,
     }));
   });
 } else if (args[0] === 'start') {
-  const devConfig = require('../library/webpack.dev');
+  const app = express();
   const compiler = webpack(devConfig);
-  const server = new WebpackDevServer(compiler);
+  const middleware = webpackDevMiddleware(compiler, {
+    publicPath: devConfig.output.publicPath,
+  });
 
-  server.listen('8000', 'localhost', err => {
+  app.use(middleware);
+  app.use(webpackHotMiddleware(compiler));
+
+  app.get('/:appName/:pageName', (req, res) => {
+    let result = '';
+    const htmlPath = path.join(`${devConfig.output.path}/${req.params.pageName}/index.html`);
+
+    try {
+      result = middleware.fileSystem.readFileSync(htmlPath);
+    } catch (err) {
+      result = err.toString();
+    }
+
+    res.write(result);
+    res.end();
+  });
+
+  app.listen('8000', (err) => {
     if (!err) {
-      open(`http://localhost:8000`);
+      open('http://localhost:8000');
     }
   });
 }
