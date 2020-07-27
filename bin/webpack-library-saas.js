@@ -59,6 +59,7 @@ if (args[0] === 'build') {
     res.end();
   });
 
+  // process.env.PORT
   app.listen(port, (err) => {
     if (!err) {
       open(`http://localhost:${port}/${appName}/index`);
