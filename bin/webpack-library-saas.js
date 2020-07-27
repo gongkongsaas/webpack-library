@@ -41,7 +41,9 @@ if (args[0] === 'build') {
   });
 
   app.use(middleware);
-  app.use(webpackHotMiddleware(compiler));
+  app.use(webpackHotMiddleware(compiler, {
+    log: console.log,
+  }));
 
   app.get(`/${appName}/:pageName`, (req, res) => {
     let result = '';

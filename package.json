@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
-    "eslint": "eslint ./library ./bin --fix",
+    "eslint": "eslint ./library --fix",
     "smoke": "node ./test/smoke/index.js",
     "test": "nyc ./node_modules/.bin/_mocha"
   },
