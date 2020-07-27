@@ -8,7 +8,8 @@ describe('webpack.common.js test case', () => {
   });
 
   it('output', () => {
+    console.log('commonConfig.output', commonConfig.output)
     assert.equal(commonConfig.output.path.indexOf('webpack-library/test/smoke/template/dist') > -1, true);
-    assert.equal(commonConfig.output.filename.indexOf('[name]_[chunkhash:8].bundle.js') > -1, true);
+    assert.equal(commonConfig.output.filename.indexOf('[name]/index_[chunkhash:8].bundle.js') > -1, true);
   });
 })
