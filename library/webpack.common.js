@@ -105,6 +105,7 @@ module.exports = {
   output: {
     path: resolve(projectRoot, 'dist'),
     filename: '[name]/index_[chunkhash:8].bundle.js',
+    publicPath: '/',
   },
   plugins: [
     new CleanWebpackPlugin(),
