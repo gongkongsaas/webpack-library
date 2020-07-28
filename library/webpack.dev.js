@@ -1,5 +1,5 @@
 const { merge } = require('webpack-merge');
-const { HotModuleReplacementPlugin, NamedModulesPlugin } = require('webpack');
+const { HotModuleReplacementPlugin } = require('webpack');
 const commonConfig = require('./webpack.common');
 
 const MIDDLEWARE = 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=10000&reload=true';
@@ -21,7 +21,6 @@ const devConfig = {
   entry: getDevEntry(),
   devtool: 'eval-source-map',
   plugins: [
-    new NamedModulesPlugin(),
     new HotModuleReplacementPlugin(),
   ],
 };
