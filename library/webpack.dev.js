@@ -10,7 +10,7 @@ const getDevEntry = () => {
   Object.keys(commonConfig.entry).map((index) => {
     const key = commonConfig.entry[index];
     devEntry[key] = [MIDDLEWARE, commonConfig.entry[key]];
-    return;
+    return index;
   });
 
   return devEntry;
