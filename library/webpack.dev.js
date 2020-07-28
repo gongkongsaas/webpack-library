@@ -7,10 +7,9 @@ const MIDDLEWARE = 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=10
 const getDevEntry = () => {
   const devEntry = {};
 
-  Object.keys(commonConfig.entry).map((index) => {
-    const key = commonConfig.entry[index];
+  Object.keys(commonConfig.entry).map((key) => {
     devEntry[key] = [MIDDLEWARE, commonConfig.entry[key]];
-    return index;
+    return key;
   });
 
   return devEntry;
