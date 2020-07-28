@@ -8,7 +8,7 @@ const webpackHotMiddleware = require('webpack-hot-middleware');
 const devConfig = require('./webpack.dev');
 
 const configPath = path.resolve(devConfig.output.path, '../config/config');
-const { appName, port } = require(configPath);
+const { appName, port } = require(configPath);  // eslint-disable-line
 
 const app = express();
 
@@ -19,7 +19,7 @@ const middleware = webpackDevMiddleware(compiler, {
 
 app.use(middleware);
 app.use(webpackHotMiddleware(compiler, {
-  log: console.log,
+  log: console.log,  // eslint-disable-line
 }));
 
 app.get(`/${appName}/:pageName`, (req, res) => {
