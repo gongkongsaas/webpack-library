@@ -22,7 +22,7 @@ app.use(webpackHotMiddleware(compiler, {
   log: console.log,  // eslint-disable-line
 }));
 
-app.get(`/${appName}/:pageName`, (req, res) => {
+app.get(`/${appName}/:pageName/`, (req, res) => {
   let result = '';
   const htmlPath = path.join(`${devConfig.output.path}/${req.params.pageName}/index.html`);
 
