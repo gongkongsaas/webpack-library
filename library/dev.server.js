@@ -36,8 +36,9 @@ app.get(`/${appName}/:pageName/:item`, (req, res) => {
   let result = '';
   const htmlPath = path.join(`${devConfig.output.path}/${req.params.pageName}/index.html`);
 
-  res.cookies('traceId', '12499d63d526a23d927f6d026389d46b');
-  res.cookies('ticket', 'SHP_2_11094_USER-SESSION_2F3ECAE3BEC6EA5A3F19D7482E509D7D');
+  res.cookie('traceId', '12499d63d526a23d927f6d026389d46b');
+  res.cookie('ticket', 'SHP_2_11094_USER-SESSION_2F3ECAE3BEC6EA5A3F19D7482E509D7D');
+  res.cookie('JSESSIONID', 'node01d5vyn8h0kc1w1uz05xg4c5qof11.node0');
 
   try {
     result = middleware.fileSystem.readFileSync(htmlPath);
