@@ -18,17 +18,17 @@ const middleware = webpackDevMiddleware(compiler, {
   publicPath: devConfig.output.publicPath,
 });
 
-app.use(middleware);
-app.use(webpackHotMiddleware(compiler, {
-  log: console.log,  // eslint-disable-line
-}));
-
 app.use('/acl', proxy({
   target: 'http://dev.delixi.com',
   changeOrigin: true,
   pathRewrite: {
     '^/acl': '',
   },
+}));
+
+app.use(middleware);
+app.use(webpackHotMiddleware(compiler, {
+  log: console.log,  // eslint-disable-line
 }));
 
 app.get(`/${appName}/:pageName/:item`, (req, res) => {
