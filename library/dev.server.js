@@ -2,6 +2,7 @@ const open = require('open');
 const path = require('path');
 const webpack = require('webpack');
 const express = require('express');
+const proxy = require('http-proxy-middleware');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 
@@ -20,6 +21,14 @@ const middleware = webpackDevMiddleware(compiler, {
 app.use(middleware);
 app.use(webpackHotMiddleware(compiler, {
   log: console.log,  // eslint-disable-line
+}));
+
+app.use('/acl', proxy({
+  target: 'http://dev.delixi.com',
+  changeOrigin: true,
+  pathRewrite: {
+    '^/acl': '',
+  },
 }));
 
 app.get(`/${appName}/:pageName/:item`, (req, res) => {
