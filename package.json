@@ -1,6 +1,6 @@
 {
   "name": "webpack-library-saas",
-  "version": "1.0.26",
+  "version": "1.0.27",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
@@ -37,6 +37,7 @@
   "dependencies": {
     "autoprefixer": "^9.8.4",
     "clean-webpack-plugin": "^3.0.0",
+    "cookie-parser": "^1.4.5",
     "cssnano": "^4.1.10",
     "express": "^4.17.1",
     "express-http-proxy": "^1.6.2",
