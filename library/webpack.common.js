@@ -59,6 +59,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
+        exclude: /node_modules/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
@@ -68,6 +69,7 @@ module.exports = {
       },
       {
         test: /\.less$/,
+        exclude: /node_modules/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
