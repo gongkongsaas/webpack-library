@@ -114,7 +114,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new WebpackBar(),
     new MiniCssExtractPlugin({
-      filename: '[name]/index_[contenthash:8].css',
+      filename: '[name]/index_[md5:contenthash:hex:8].css',
     }),
   ].concat(htmlWebpackPlugins),
   externals: {
