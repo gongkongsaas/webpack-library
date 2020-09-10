@@ -118,4 +118,11 @@ module.exports = {
     react: 'React',
     'react-dom': 'ReactDOM',
   },
+  resolve: {
+    extensions: ['.js', '.jsx', 'ts', '.tsx', '.json'],
+    alias: {
+      '@': resolve(__dirname, './src'),
+      '~': resolve(projectRoot, './src'),
+    },
+  },
 };
