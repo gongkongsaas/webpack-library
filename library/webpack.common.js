@@ -122,6 +122,7 @@ module.exports = {
     extensions: ['.js', '.jsx', 'ts', '.tsx', '.json'],
     alias: {
       '@src': path.join(projectRoot, 'src'),
+      '@config': path.join(projectRoot, 'config'),
       '@components': path.join(projectRoot, 'components'),
     },
   },
