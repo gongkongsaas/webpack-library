@@ -2,10 +2,13 @@ const { sync } = require('glob');
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer = require('autoprefixer');
 const WebpackBar = require('webpackbar');
 
 const projectRoot = process.cwd();
+
+const devMode = process.env.NODE_ENV !== 'production';
 
 /*
  * 兼容多页面应用
@@ -59,12 +62,14 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
+          devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
         ],
       },
       {
         test: /\.less$/,
         use: [
+          devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
           {
             loader: 'postcss-loader',
