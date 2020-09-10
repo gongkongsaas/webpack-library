@@ -1,5 +1,5 @@
 const { sync } = require('glob');
-const { resolve } = require('path');
+const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -18,7 +18,7 @@ const setMultiPageApplication = () => {
   const entry = {};
   const htmlWebpackPlugins = [];
 
-  const entryFiles = sync(resolve(projectRoot, './src/*/index.js'));
+  const entryFiles = sync(path.resolve(projectRoot, './src/*/index.js'));
 
   Object.keys(entryFiles).map((index) => {
     const entryFile = entryFiles[index];
@@ -29,7 +29,7 @@ const setMultiPageApplication = () => {
 
     return htmlWebpackPlugins.push(
       new HtmlWebpackPlugin({
-        template: resolve(projectRoot, 'src/document.ejs'),
+        template: path.resolve(projectRoot, 'src/document.ejs'),
         filename: `${pathName}/index.html`,
         chunks: [pathName],
         inject: true,
@@ -81,7 +81,7 @@ module.exports = {
           },
           'less-loader',
         ],
-        include: resolve(projectRoot, 'src'),
+        include: path.resolve(projectRoot, 'src'),
       },
       {
         test: /\.js$/,
@@ -103,7 +103,7 @@ module.exports = {
     ],
   },
   output: {
-    path: resolve(projectRoot, 'dist'),
+    path: path.resolve(projectRoot, 'dist'),
     filename: '[name]/index_[chunkhash:8].bundle.js',
     publicPath: '/',
   },
@@ -121,8 +121,8 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', 'ts', '.tsx', '.json'],
     alias: {
-      '@': resolve(__dirname, './src'),
-      '~': resolve(projectRoot, './src'),
+      '@': path.resolve(__dirname, './src'),
+      '~': path.resolve(projectRoot, './src'),
     },
   },
 };
