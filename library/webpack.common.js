@@ -81,7 +81,10 @@ module.exports = {
           },
           'less-loader',
         ],
-        include: path.resolve(projectRoot, 'src'),
+        include: [
+          path.resolve(projectRoot, 'src'),
+          path.resolve(projectRoot, 'components'),
+        ],
       },
       {
         test: /\.js$/,
