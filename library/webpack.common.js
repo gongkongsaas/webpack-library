@@ -32,7 +32,7 @@ const setMultiPageApplication = () => {
     return htmlWebpackPlugins.push(
       new HtmlWebpackPlugin({
         template: path.resolve(projectRoot, 'src/document.ejs'),
-        filename: devMode ? `${pathName}/index.html` : `./index.html`,
+        filename: `${pathName}/index.html`,
         chunks: [pathName],
         inject: true,
         minify: {
@@ -54,6 +54,7 @@ const setMultiPageApplication = () => {
 };
 
 const { entry, htmlWebpackPlugins } = setMultiPageApplication();
+let outputFilename = devMode ? `[name]/index_[chunkhash:8].bundle.js` : './index_[chunkhash:8].bundle.js'
 
 module.exports = {
   entry,
@@ -105,7 +106,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(projectRoot, 'dist'),
-    filename: '[name]/index_[chunkhash:8].bundle.js',
+    filename: outputFilename,
     publicPath: '/',
   },
   plugins: [
