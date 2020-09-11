@@ -32,7 +32,7 @@ const setMultiPageApplication = () => {
     return htmlWebpackPlugins.push(
       new HtmlWebpackPlugin({
         template: path.resolve(projectRoot, 'src/document.ejs'),
-        filename: `${pathName}/index.html`,
+        filename: devMode ? `${pathName}/index.html` : `./index.html`,
         chunks: [pathName],
         inject: true,
         minify: {
