@@ -123,7 +123,8 @@ module.exports = {
     alias: {
       '@src': path.join(projectRoot, 'src'),
       '@config': path.join(projectRoot, 'config'),
-      '@components': path.join(projectRoot, 'components'),
+      '@mock': path.join(projectRoot, 'mock'),
+      '@tests': path.join(projectRoot, 'tests'),
     },
   },
 };
