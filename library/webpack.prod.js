@@ -1,5 +1,6 @@
 const { merge } = require('webpack-merge');
 const cssnano = require('cssnano');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
 const commonConfig = require('./webpack.common');
@@ -7,6 +8,7 @@ const commonConfig = require('./webpack.common');
 const prodConfig = {
   mode: 'production',
   plugins: [
+    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: '[name]/index_[contenthash:8].css',
     }),
