@@ -20,11 +20,11 @@ const setMultiPageApplication = () => {
   const entry = {};
   const htmlWebpackPlugins = [];
 
-  const entryFiles = sync(path.resolve(projectRoot, './src/*/index.js'));
+  const entryFiles = sync(path.resolve(projectRoot, './src/pages/*/index.js'));
 
   Object.keys(entryFiles).map((index) => {
     const entryFile = entryFiles[index];
-    const match = entryFile.match(/src\/(.*)\/index\.js/);
+    const match = entryFile.match(/src\/pages\/(.*)\/index\.js/);
     const pathName = match && match[1];
 
     entry[pathName] = entryFile;

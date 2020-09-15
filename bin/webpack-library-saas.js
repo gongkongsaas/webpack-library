@@ -5,6 +5,7 @@
 process.on('unhandledRejection', (err) => {
   throw err;
 });
+
 const webpack = require('webpack');
 const prodConfig = require('../library/webpack.prod');
 
