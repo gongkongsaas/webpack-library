@@ -81,8 +81,7 @@ module.exports = {
           'less-loader',
         ],
         include: [
-          path.resolve(projectRoot, 'src'),
-          path.resolve(projectRoot, 'components'),
+          path.join(projectRoot, 'src')
         ],
       },
       {
