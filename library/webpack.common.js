@@ -102,7 +102,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(projectRoot, 'dist'),
-    filename: devMode ? '[name]/index_[chunkhash:8].bundle.js' : '[name]/index_[chunkhash:8].bundle.js',
+    filename: devMode ? '[name]/index_[hash:8].bundle.js' : '[name]/index_[chunkhash:8].bundle.js',
     publicPath: `/${appName}`,
   },
   plugins: [
