@@ -3,6 +3,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer = require('autoprefixer');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const WebpackBar = require('webpackbar');
 
 const projectRoot = process.cwd();
@@ -106,6 +107,7 @@ module.exports = {
     publicPath: `/${appName}`,
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new WebpackBar(),
   ].concat(htmlWebpackPlugins),
   externals: {
