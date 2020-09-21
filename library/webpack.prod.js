@@ -5,12 +5,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
 const commonConfig = require('./webpack.common');
 
-
-const path = require('path');
-const projectRoot = process.cwd();
-console.log(path.join(projectRoot, 'src'), 1112223334455667788990);
-
-
 const prodConfig = {
   mode: 'production',
   plugins: [

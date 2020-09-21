@@ -56,6 +56,8 @@ const { entry, htmlWebpackPlugins } = setMultiPageApplication();
 const configPath = path.join(projectRoot, 'config/config');
 const { appName } = require(configPath);  // eslint-disable-line
 
+console.log(path.join(projectRoot, 'src'), 1112223334455667788990);
+
 module.exports = {
   entry,
   module: {
@@ -79,9 +81,6 @@ module.exports = {
             },
           },
           'less-loader',
-        ],
-        include: [
-          path.join(projectRoot, 'src'),
         ],
       },
       {
