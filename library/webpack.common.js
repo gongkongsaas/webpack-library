@@ -56,9 +56,6 @@ const { entry, htmlWebpackPlugins } = setMultiPageApplication();
 const configPath = path.join(projectRoot, 'config/config');
 const { appName } = require(configPath);  // eslint-disable-line
 
-console.log(path.join(projectRoot, 'src'), 2323411);
-console.log(devMode, 'devMode');
-
 module.exports = {
   entry,
   module: {
@@ -105,7 +102,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(projectRoot, 'dist'),
-    filename: '[name]/index_[chunkhash:8].bundle.js',
+    filename: devMode ? '[name]/index_[chunkhash:8].bundle.js' : '[name]/index_[chunkhash:8].bundle.js',
     publicPath: `/${appName}`,
   },
   plugins: [
