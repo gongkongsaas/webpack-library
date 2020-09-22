@@ -111,8 +111,8 @@ module.exports = {
     new CleanWebpackPlugin(),
     new WebpackBar(),
     new webpack.DefinePlugin({
-      GKS_API: devMode ? '/api' : '',
-    })
+      GKS_API: '/',
+    }),
   ].concat(htmlWebpackPlugins),
   externals: {
     react: 'React',
