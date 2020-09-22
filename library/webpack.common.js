@@ -1,5 +1,6 @@
 const { sync } = require('glob');
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer = require('autoprefixer');
@@ -109,6 +110,9 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new WebpackBar(),
+    new webpack.DefinePlugin({
+      GKS_API: devMode ? '/api' : '',
+    })
   ].concat(htmlWebpackPlugins),
   externals: {
     react: 'React',
@@ -121,7 +125,6 @@ module.exports = {
       '@config': path.join(projectRoot, 'config'),
       '@mock': path.join(projectRoot, 'mock'),
       '@tests': path.join(projectRoot, 'tests'),
-      '@api': devMode ? '/api' : '',
     },
   },
 };
