@@ -121,6 +121,7 @@ module.exports = {
       '@config': path.join(projectRoot, 'config'),
       '@mock': path.join(projectRoot, 'mock'),
       '@tests': path.join(projectRoot, 'tests'),
+      '@api': devMode ? '/api' : '',
     },
   },
 };
